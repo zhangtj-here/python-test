@@ -68,8 +68,19 @@ data = Series([1, NA, 2])
 
 data2 = DataFrame([[1, 6.5, 3], [1., NA, NA], [NA, NA, NA]])
 data2[4] = NA
-print(data2)
-# print(data2.dropna(how='all'))
-print(data2.dropna(axis=1, how='all'))
-print(data2.fillna(0,inplace=True))
-print(data2)
+# print(data2)
+# # print(data2.dropna(how='all'))
+# print(data2.dropna(axis=1, how='all'))
+# print(data2.fillna(0,inplace=True))
+# print(data2)
+
+import numpy as np
+data3 = Series(np.random.randn(10),
+               index=[['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'd', 'e'],
+                      [1, 2, 3, 1, 2, 3, 1, 2, 2, 3]])
+
+print(data3)
+# print(data3['b'])
+# print(data3['b':'c'])
+print(data3.unstack()) # unstack函数将一维的数据转换为二维的数据
+print(data3.unstack().stack()) # stack函数可以将二维的数据转化为一维的数据
